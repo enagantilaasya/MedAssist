@@ -27,9 +27,12 @@ const app = express();
 
 // Middlewares
 app.use(cors({
-  origin: true,
-  credentials: true
+  origin: true, // Allow any Vercel frontend domain, localhost, and custom domains
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie', 'X-Requested-With', 'Accept']
 }));
+app.options('*', cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
