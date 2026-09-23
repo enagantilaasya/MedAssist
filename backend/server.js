@@ -83,12 +83,12 @@ app.use((err, req, res, next) => {
 const PORT = parseInt(process.env.PORT || '5001', 10);
 
 const server = app.listen(PORT, () => {
-  console.log(`🚀 MedAssist API Server running on port ${PORT}`);
+  console.log(` MedAssist API Server running on port ${PORT}`);
 });
 
 server.on('error', (err) => {
   if (err.code === 'EADDRINUSE') {
-    console.error(`❌ Port ${PORT} is in use. Please terminate the conflicting process or change PORT in .env`);
+    console.error(`Port ${PORT} is in use. Please terminate the conflicting process or change PORT in .env`);
   } else {
     console.error('Server error:', err);
   }
